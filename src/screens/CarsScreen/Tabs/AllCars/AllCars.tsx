@@ -3,7 +3,6 @@ import { CarListItem } from "@/components"
 import useStore from "@/store/useStore"
 import { Car } from "@/typings/api"
 import { useNavigation } from "@react-navigation/native"
-import { Text } from "@rneui/themed"
 import { useCallback, useEffect } from "react"
 import { FlatList, View } from "react-native"
 import { useStyle } from "./useStyle"
@@ -16,8 +15,6 @@ export const AllCars = (props: AllCarsProps) => {
   const style = useStyle()
   const setCars = useStore((state) => state.setCars)
   const cars = useStore(state => state.cars)
-  const currentUser = useStore(state => state.user)
-  const navigation = useNavigation()
 
   useEffect(() => {
     const unsubscribed = carsCollection.where('isAvailableForRent', '==', true)

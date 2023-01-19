@@ -1,12 +1,15 @@
 import { User } from '@/typings/api';
+import { LatLng } from 'react-native-maps';
 import { StateCreator } from 'zustand'
 import { MyState } from './useStore';
 
 export interface AuthSlice {
   isAuthenticated: boolean,
   user: User
+  currentLocation: LatLng
   setLogin: (status: boolean) => void
   setUser: (user: User) => void
+  setUserLocation: (loc: LatLng) => void
   updateUser: (user: Partial<User>) => void
 }
 
@@ -20,6 +23,15 @@ const createAuthSlice: StateCreator<
   user: {
     email: '',
     uid: '',
+  },
+  currentLocation: {
+    latitude: 0,
+    longitude: 0,
+  },
+  setUserLocation: (loc) => {
+    set({
+      currentLocation: loc
+    })
   },
   setLogin: (status) => {
     set({

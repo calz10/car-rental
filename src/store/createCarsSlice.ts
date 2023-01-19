@@ -27,6 +27,7 @@ const createCarsSlice: StateCreator<
   },
   createCarPost: async (currentCar) => {
     try {
+      const { currentLocation } = get()
       set({
         isCreatingCar: true
       })
@@ -44,6 +45,10 @@ const createCarsSlice: StateCreator<
       await createCarPost({
         ...currentCar,
         ownerId: user.uid,
+        location: {
+          lat: currentLocation.latitude,
+          lng: currentLocation.longitude,
+        },
         ownerEmail: user.email
       })
 
