@@ -72,12 +72,12 @@ export const ReservationDetailsScreen = ({
         plateNumber={reservation.plateNumber}
         status={reservation.status}
       />
-      <View style={style.actionBttn}>
+      {reservation.status === CarStatus.RESERVED && <View style={style.actionBttn}>
         <Button
           title="Mark as Completed"
           onPress={handleMarkAsCompleted}
         />
-      </View>
+      </View>}
     </View>
   )
 }

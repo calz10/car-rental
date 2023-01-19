@@ -1,9 +1,8 @@
-import { cancelReservation, carsCollection, reservationCollections, updateReservation } from "@/api"
+import { cancelReservation, reservationCollections } from "@/api"
 import { CarListItem } from "@/components"
 import { Toasify } from "@/helpers"
 import useStore from "@/store/useStore"
-import { Car, CarStatus, Reservation } from "@/typings/api"
-import { Text } from "@rneui/themed"
+import { CarStatus, Reservation } from "@/typings/api"
 import { useCallback, useEffect, useState } from "react"
 import { Alert } from "react-native"
 import { FlatList, View } from "react-native"
@@ -99,9 +98,6 @@ export const CompletedReservedCars = ({
         renderItem={renderItem}
         keyExtractor={getKey}
       />
-      <Text>
-        {reservations.length}
-      </Text>
     </View>
   )
 }

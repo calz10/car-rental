@@ -28,7 +28,7 @@ export const Routes = (props: RouteProps) => {
           />
           <StackNavigator.Screen
             name="ReservationDetailsScreen"
-            component={ReservationDetailsScreen}
+            component={ReservationDetailsScreen as any}
             options={{
               headerTitle: ''
             }}
